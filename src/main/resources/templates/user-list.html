@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Tarea 2</title>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html;" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Tarea 2 del curso de Spring Boot">
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+	<style>
+		.bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+		}
+
+		@media (min-width: 768px) {
+			.bd-placeholder-img-lg {
+				font-size: 3.5rem;
+			}
+		}
+	</style>
+	<link th:href="@{/css/headers.css}" rel="stylesheet">
+	<link th:href="@{/css/heroes.css}" rel="stylesheet">
+</head>
+
+<body>
+	<div th:replace="~{/home :: header}">Header</div>
+	<!-- LISTAR USUARIOS -->
+	<div class="container">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Nombre de Usuario</th>
+					<th scope="col">Nombre y Apellidos</th>
+					<th scope="col">Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="user,iter: ${users}">
+					<th scope="row" th:text="${iter.index+1}">1</th>
+					<td th:text="${user.username}">Username</td>
+					<td th:text="${user.name}">Name</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+	<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+
+</html>

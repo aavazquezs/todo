@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Tarea 2</title>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html;" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Tarea 2 del curso de Spring Boot">
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+	<style>
+		.bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+		}
+
+		@media (min-width: 768px) {
+			.bd-placeholder-img-lg {
+				font-size: 3.5rem;
+			}
+		}
+	</style>
+	<link th:href="@{/css/signin.css}" rel="stylesheet">
+</head>
+
+<body class="text-center">
+	<main class="form-signin">
+		<form name="f" action="/perform_login" method="POST">
+			<a href="/"
+				class="d-flex align-items-center mb-3 mb-md-0 align-self-center justify-content-center mx-auto text-dark text-decoration-none">
+				<img class="mb-4" th:src="@{/images/todo.svg}" alt="" width="72" height="57">
+			</a>
+			<h1 class="h3 mb-3 fw-normal">Iniciar sesión</h1>
+			<div th:if="${error}" class="alert alert-danger" role="alert">
+				Verifique usuario o contraseña.
+			</div>
+			<div class="form-floating">
+				<input type="text" class="form-control" id="username" name="username" placeholder="Usuario">
+				<label for="username">Usuario</label>
+			</div>
+			<div class="form-floating">
+				<input type="password" class="form-control" id="password" name="password" placeholder="Password">
+				<label for="password">Password</label>
+			</div>
+
+			<div class="checkbox mb-3">
+				<label>
+					<input type="checkbox" value="remember-me"> Recordarme
+				</label>
+			</div>
+			<button class="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
+			<p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+		</form>
+	</main>
+
+	<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+
+</html>
